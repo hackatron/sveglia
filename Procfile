@@ -1,0 +1,1 @@
+web: bundle exec ruby sveglia.rb -sv -e prod -p $PORT
