@@ -6,3 +6,7 @@ gem 'em-synchrony', :git => 'git://github.com/igrigorik/em-synchrony.git'
 gem 'yajl-ruby'
 gem 'tilt', :git => 'git://github.com/rtomayko/tilt.git'
 gem 'haml'
+
+group :development, :test do
+  gem 'rspec'
+end
