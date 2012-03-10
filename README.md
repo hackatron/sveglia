@@ -6,10 +6,14 @@ A countdown timer app.
 
 To start app server run
 
-    foreman start
+```bash
+$ foreman start
+```
 
 If it doesn't work maybe you should install `foreman`
 
-    gem install foreman
+```bash
+$ gem install foreman
+```
 
 Repo for this project adopts [*git flow* branching model](http://nvie.com/posts/a-successful-git-branching-model/).
