@@ -6,19 +6,11 @@ require 'em-http/middleware/json_response'
 require 'yajl'
 require 'tilt'
 require 'haml'
+require 'json'
 
-class Template < Goliath::API
-  include Goliath::Rack::Templates      # render templated files from ./views
-  plugin Goliath::Plugin::Latency       # ask eventmachine reactor to track its latency
+require_relative 'actions/welcome'
 
-  def recent_latency
-    Goliath::Plugin::Latency.recent_latency
-  end
-
-  def response(env)
-    [200, {}, haml(:index)]
-  end
-end
+VERSION = "0.1.0".freeze
 
 # automatically parse the JSON HTTP response
 EM::HttpRequest.use EventMachine::Middleware::JSONResponse
@@ -46,9 +38,9 @@ class Hello < Goliath::API
   end
 end
 
-class RackRoutes < Goliath::API
+class Sveglia < Goliath::API
   # map Goliath API to a specific path
-  get "/", Template
+  get "/", Welcome
   get "/hello", Hello
   
   use(Rack::Static,                     # render static files from ./public
