@@ -43,6 +43,10 @@ p {
   margin-bottom: 18px;
 }
 
+ul li {
+  margin: 20px auto;
+}
+
 time {
   font-size: 12px;
 }
