@@ -64,7 +64,7 @@ var AppRouter = Backbone.Router.extend({
 
   routes: {
     "": "list",
-    "timer/:id": "timerDetails"
+    "timers/:id": "timerDetails"
   },
 
   list: function () {
@@ -77,7 +77,7 @@ var AppRouter = Backbone.Router.extend({
   timerDetails: function (id) {
     this.timer = this.timerList.get(id);
     this.timerView = new TimerView({model:this.timer});
-    $('#content').html(this.timerView.render().el);
+    $('#timer_details').html(this.timerView.render().el);
   }
 });
 
