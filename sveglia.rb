@@ -4,51 +4,32 @@ require 'goliath/plugins/latency'
 require 'em-synchrony/em-http'
 require 'em-http/middleware/json_response'
 require 'yajl'
-require 'tilt'
-require 'haml'
 require 'json'
 
-require_relative 'actions/welcome'
+require_relative 'actions/hello'
+require_relative 'actions/timers_index'
+require_relative 'models/timer'
 
 VERSION = "0.1.0".freeze
 
 # automatically parse the JSON HTTP response
 EM::HttpRequest.use EventMachine::Middleware::JSONResponse
 
-class Hello < Goliath::API
-  # parse query params and auto format JSON response
-  use Goliath::Rack::Params
-  use Goliath::Rack::Formatters::JSON
-  use Goliath::Rack::Render
-
-  def response(env)
-    resp = nil
-
-    if params['query']
-      # simple GitHub API proxy example
-      logger.info "Starting request for #{params['query']}"
-      conn = EM::HttpRequest.new("http://github.com/api/v2/json/repos/search/#{params['query']}").get
-      logger.info "Received #{conn.response_header.status} from Github"
-      resp = conn.response
-    else
-      resp = env # output the Goalith environment
-    end
-
-    [200, {'Content-Type' => 'application/json'}, resp]
-  end
-end
-
 class Sveglia < Goliath::API
   # map Goliath API to a specific path
-  get "/", Welcome
   get "/hello", Hello
+
+  # timer resources
+  get "/timers", TimersIndex
   
-  use(Rack::Static,                     # render static files from ./public
-      :root => Goliath::Application.app_path("public"),
-      :urls => ["/favicon.ico", '/stylesheets', '/javascripts', '/images'])
+  # render static files from ./public
+  use(Rack::Static,
+    :root  => Goliath::Application.app_path("public"),
+    :urls  => ['/favicon.ico', '/stylesheets', '/javascripts', '/images'],
+    :index => '/index.html')
 
   not_found do
-    run Proc.new { |env| [404, {"Content-Type" => "text/html"}, ["Try /version /hello_world, /bonjour, or /hola"]] }
+    run Proc.new { |env| [404, {"Content-Type" => "text/html"}, ["Not found"]] }
   end
 
   # You must use either maps or response, but never both!
