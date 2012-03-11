@@ -2,6 +2,8 @@
 
 A countdown timer app.
 
+## Build Status [![Build Status](https://secure.travis-ci.org/hackatron/sveglia.png?branch=master)](http://travis-ci.org/hackatron/sveglia)
+
 ## Notes
 
 To start app server run
