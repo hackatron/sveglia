@@ -10,6 +10,8 @@ require 'json'
 
 require_relative 'actions/welcome'
 
+VERSION = "0.1.0".freeze
+
 # automatically parse the JSON HTTP response
 EM::HttpRequest.use EventMachine::Middleware::JSONResponse
 
