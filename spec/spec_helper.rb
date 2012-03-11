@@ -12,3 +12,5 @@ RSpec.configure do |c|
     :file_path => /spec\/integration/
   }
 end
+
+require File.join(File.dirname(__FILE__), '..', 'sveglia')
