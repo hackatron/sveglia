@@ -7,6 +7,8 @@ gem 'yajl-ruby'
 gem 'tilt', :git => 'git://github.com/rtomayko/tilt.git'
 gem 'haml'
 
+gem 'rake'
+
 group :development, :test do
   gem 'rspec'
 end
