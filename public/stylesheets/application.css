@@ -96,3 +96,13 @@ footer {
 footer * {
   display: inline;
 }
+
+/* date input */
+
+#date_input {
+  width: 100%;
+  font-size: 60px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  border: #ccc 1px solid;
+}
