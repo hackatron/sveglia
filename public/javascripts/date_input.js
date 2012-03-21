@@ -16,7 +16,7 @@
           date_string.addClass("accept").text(date.toString("dddd, MMMM dd, yyyy h:mm:ss tt"));
         } else {
           input.addClass("validate_error");
-          date_string.addClass("error").text(messages[Math.round(messages.length * Math.random())] + "...");
+          date_string.addClass("error").text(messages[Math.round(messages.length * Math.random())]);
         }
       } else {
         date_string.text(empty_string).addClass("empty");
