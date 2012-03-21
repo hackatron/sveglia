@@ -10,7 +10,7 @@ require_relative 'actions/hello'
 require_relative 'actions/timers_index'
 require_relative 'models/timer'
 
-VERSION = "0.1.3".freeze
+VERSION = "0.1.4".freeze
 
 # automatically parse the JSON HTTP response
 EM::HttpRequest.use EventMachine::Middleware::JSONResponse
