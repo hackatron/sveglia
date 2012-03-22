@@ -1,17 +1,17 @@
 require 'goliath'
-require 'goliath/rack/templates'
 require 'goliath/plugins/latency'
-require 'em-synchrony/em-http'
+require 'em-http'
 require 'em-http/middleware/json_response'
 require 'yajl'
 require 'json'
+require 'pusher'
 
 require_relative 'actions/hello'
 require_relative 'actions/timers_index'
 require_relative 'actions/scheduler'
 require_relative 'models/timer'
 
-VERSION = "0.1.5".freeze
+VERSION = "0.1.6".freeze
 
 # automatically parse the JSON HTTP response
 EM::HttpRequest.use EventMachine::Middleware::JSONResponse
@@ -29,7 +29,7 @@ class Sveglia < Goliath::API
   # render static files from ./public
   use(Rack::Static,
     :root  => Goliath::Application.app_path("public"),
-    :urls  => ['/favicon.ico', '/stylesheets', '/javascripts', '/images'],
+    :urls  => ['/favicon.ico', '/stylesheets', '/javascripts', '/images', '/notifications.html'],
     :index => '/index.html')
 
   not_found do

@@ -1,1 +1,1 @@
-web: bundle exec ruby sveglia.rb -sv -e prod -p $PORT
+web: bundle exec ruby sveglia.rb -sv -e $GOLIATH_ENV -p $PORT
