@@ -16,14 +16,21 @@
           <a href='/'>Sveglia</a>
         </h1>
       </header>
-      <div class='wrapper' id='main'>
 
-        <div id="madskillz">
-          <form>
-            <input id="date_input" type="text" />
-          </form>
-          <div id="your_date" class="empty"></div>
-        </div>
+      <div class='wrapper' id='main'>
+        <h2>Routes</h2>
+        <ul>
+          <li><a href="/hello">Hello</a></li>
+          <li><a href="/timers">Timers index</a></li>
+          <li><a href="/scheduler?delay=0.5">Scheduler (delay: 0.5)</a></li>
+          <li><a href="/scheduler">Scheduler (delay: 1)</a></li>
+        </ul>
+
+        <h2>Date input</h2>
+        <form>
+          <input id="date_input" type="text" />
+        </form>
+        <div id="your_date" class="empty"></div>
         <div id="suggestions">
           <p>Here&#8217;s a few suggestions to try&#8230;</p>
           <table>
@@ -50,16 +57,11 @@
           </table>
         </div>
 
-        <h2>Routes</h2>
-        <ul>
-          <li><a href="/hello">Hello</a></li>
-          <li><a href="/timers">Timers index</a></li>
-        </ul>
-
         <h2>Timers</h2>
         <div id="timer_details"></div>
         <div id="timers"></div>
       </div>
+
       <footer class='wrapper'>
         <p>
           Copyright &copy; 2012
