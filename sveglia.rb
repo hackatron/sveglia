@@ -8,9 +8,10 @@ require 'json'
 
 require_relative 'actions/hello'
 require_relative 'actions/timers_index'
+require_relative 'actions/scheduler'
 require_relative 'models/timer'
 
-VERSION = "0.1.4".freeze
+VERSION = "0.1.5".freeze
 
 # automatically parse the JSON HTTP response
 EM::HttpRequest.use EventMachine::Middleware::JSONResponse
@@ -21,6 +22,9 @@ class Sveglia < Goliath::API
 
   # timer resources
   get "/timers", TimersIndex
+
+  # scheduler test
+  get "/scheduler", Scheduler
   
   # render static files from ./public
   use(Rack::Static,
