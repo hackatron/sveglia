@@ -8,6 +8,7 @@ require 'json'
 
 require_relative 'actions/hello'
 require_relative 'actions/timers_index'
+require_relative 'actions/scheduler'
 require_relative 'models/timer'
 
 VERSION = "0.1.4".freeze
@@ -21,6 +22,9 @@ class Sveglia < Goliath::API
 
   # timer resources
   get "/timers", TimersIndex
+
+  # scheduler test
+  get "/scheduler", Scheduler
   
   # render static files from ./public
   use(Rack::Static,
