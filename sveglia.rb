@@ -1,10 +1,10 @@
 require 'goliath'
-require 'goliath/rack/templates'
 require 'goliath/plugins/latency'
-require 'em-synchrony/em-http'
+require 'em-http'
 require 'em-http/middleware/json_response'
 require 'yajl'
 require 'json'
+require 'pusher'
 
 require_relative 'actions/hello'
 require_relative 'actions/timers_index'
@@ -29,7 +29,7 @@ class Sveglia < Goliath::API
   # render static files from ./public
   use(Rack::Static,
     :root  => Goliath::Application.app_path("public"),
-    :urls  => ['/favicon.ico', '/stylesheets', '/javascripts', '/images'],
+    :urls  => ['/favicon.ico', '/stylesheets', '/javascripts', '/images', '/notifications.html'],
     :index => '/index.html')
 
   not_found do
