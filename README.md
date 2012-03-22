@@ -9,7 +9,7 @@ A countdown timer app.
 To start app server run
 
 ```bash
-$ foreman start
+$ GOLIATH_ENV=development foreman start
 ```
 
 If it doesn't work maybe you should install `foreman`
@@ -30,5 +30,10 @@ To run specs
 $ rake spec
 ```
 
+To run jasmine specs
+
+```bash
+$ rake jasmine:ci
+```
 
 Repo for this project adopts [*git flow* branching model](http://nvie.com/posts/a-successful-git-branching-model/).
