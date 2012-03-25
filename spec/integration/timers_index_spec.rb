@@ -8,7 +8,7 @@ describe TimersIndex do
       Timer.should_receive(:all).and_return([timer])
 
       get_request(:path => '/timers') do |c|
-        c.response.should == JSON.parse(JSON.generate([timer.to_hash]))
+        c.response.should == [timer.to_hash]
       end
     end
   end
