@@ -12,7 +12,7 @@ require_relative 'actions/timers_show'
 require_relative 'actions/scheduler'
 require_relative 'models/timer'
 
-VERSION = "0.1.7".freeze
+VERSION = "0.1.8".freeze
 
 # automatically parse the JSON HTTP response
 EM::HttpRequest.use EventMachine::Middleware::JSONResponse
