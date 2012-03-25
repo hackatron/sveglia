@@ -8,10 +8,11 @@ require 'pusher'
 
 require_relative 'actions/hello'
 require_relative 'actions/timers_index'
+require_relative 'actions/timers_show'
 require_relative 'actions/scheduler'
 require_relative 'models/timer'
 
-VERSION = "0.1.7".freeze
+VERSION = "0.1.8".freeze
 
 # automatically parse the JSON HTTP response
 EM::HttpRequest.use EventMachine::Middleware::JSONResponse
@@ -22,6 +23,8 @@ class Sveglia < Goliath::API
 
   # timer resources
   get "/timers", TimersIndex
+  # NOTE: https://github.com/postrank-labs/goliath/commit/6cd74b8f4013b7f756e9404fb5f4f8de776b88ac
+  get "/timers/:id", TimersShow
 
   # scheduler test
   get "/scheduler", Scheduler
