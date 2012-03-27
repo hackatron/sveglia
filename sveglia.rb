@@ -5,17 +5,23 @@ require 'em-http/middleware/json_response'
 require 'yajl'
 require 'json'
 require 'pusher'
+require 'sprockets'
 
 require_relative 'actions/hello'
 require_relative 'actions/timers_index'
 require_relative 'actions/timers_show'
 require_relative 'actions/scheduler'
 require_relative 'models/timer'
+require_relative 'lib/goliath/rack/sprockets'
 
 VERSION = "0.1.8".freeze
 
 # automatically parse the JSON HTTP response
 EM::HttpRequest.use EventMachine::Middleware::JSONResponse
+
+class SprocketsAPI < Goliath::API
+  use Goliath::Rack::Sprockets
+end
 
 class Sveglia < Goliath::API
   # map Goliath API to a specific path
@@ -28,7 +34,9 @@ class Sveglia < Goliath::API
 
   # scheduler test
   get "/scheduler", Scheduler
-  
+
+  get "/assets/*", SprocketsAPI
+
   # render static files from ./public
   use(Rack::Static,
     :root  => Goliath::Application.app_path("public"),

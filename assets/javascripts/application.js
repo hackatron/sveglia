@@ -1,6 +1,4 @@
-//
-// Router
-//
+//= require_self
 
 var AppRouter = Backbone.Router.extend({
 
