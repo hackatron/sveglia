@@ -1,7 +1,6 @@
 require 'goliath'
 require 'goliath/plugins/latency'
 require 'em-http'
-require 'em-http/middleware/json_response'
 require 'yajl'
 require 'json'
 require 'pusher'
@@ -10,12 +9,10 @@ require_relative 'actions/hello'
 require_relative 'actions/timers_index'
 require_relative 'actions/timers_show'
 require_relative 'actions/scheduler'
+require_relative 'models/redis_record'
 require_relative 'models/timer'
 
 VERSION = "0.1.8".freeze
-
-# automatically parse the JSON HTTP response
-EM::HttpRequest.use EventMachine::Middleware::JSONResponse
 
 class Sveglia < Goliath::API
   # map Goliath API to a specific path
