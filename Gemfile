@@ -9,7 +9,12 @@ gem 'pusher'
 
 gem 'rake'
 
+group :assets do
+  gem 'sprockets'
+end
+
 group :development, :test do
   gem 'rspec'
   gem 'jasmine'
+  gem 'foreman'
 end
