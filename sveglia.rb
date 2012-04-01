@@ -14,7 +14,7 @@ require_relative 'models/redis_record'
 require_relative 'models/timer'
 require_relative 'lib/goliath/rack/sprockets'
 
-VERSION = "0.1.8".freeze
+VERSION = "0.1.9".freeze
 
 class SprocketsAPI < Goliath::API
   use Goliath::Rack::Sprockets
