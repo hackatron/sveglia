@@ -8,7 +8,7 @@ describe TimersShow do
       Timer.should_receive(:find).with('1').and_return(timer)
 
       get_request(:path => '/timers', :query => {:id => 1}) do |c|
-        c.response.should == timer.to_hash
+        c.response.should == timer.to_json
       end
     end
   end

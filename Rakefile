@@ -16,3 +16,6 @@ rescue LoadError
     abort "Jasmine is not available. In order to run jasmine, you must: (sudo) gem install jasmine"
   end
 end
+
+# spec task depends on jasmine:ci task
+task :spec => :'jasmine:ci'
