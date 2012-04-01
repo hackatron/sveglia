@@ -1,3 +1,10 @@
+//= require date_input.js
+//= require parallax.js
+//= require models/timer.js
+//= require collections/timers.js
+//= require views/timer_list_view.js
+//= require views/timer_list_item_view.js
+//= require views/timer_view.js
 //= require_self
 
 var AppRouter = Backbone.Router.extend({
