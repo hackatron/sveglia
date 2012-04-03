@@ -14,7 +14,7 @@ class Hello < Goliath::API
       logger.info "Received #{conn.response_header.status} from Github"
       resp = conn.response
     else
-      resp = env # output the Goalith environment
+      resp = redis_pool.execute(false) {|r| r.info}
     end
 
     [200, {'Content-Type' => 'application/json'}, resp]
