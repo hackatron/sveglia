@@ -19,3 +19,8 @@ end
 environment :test do
   logger.info 'test.example.org'
 end
+
+pool_size = ENV['REDIS_POOL_SIZE'] || 1
+config['redis_pool'] = EM::Synchrony::ConnectionPool.new(size: pool_size) do
+  Redis.new
+end
