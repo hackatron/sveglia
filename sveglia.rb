@@ -1,9 +1,5 @@
-require 'goliath'
-require 'goliath/plugins/latency'
-require 'em-http'
-require 'yajl'
-require 'json'
-require 'pusher'
+Bundler.setup
+Bundler.require
 require 'sprockets'
 
 require_relative 'actions/hello'
