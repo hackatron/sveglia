@@ -15,7 +15,7 @@ class RedisRecord
   end
 
   def to_json
-    JSON.generate(to_hash)
+    Yajl::Encoder.encode(to_hash)
   end
 
   def define_attribute_methods(attributes)
